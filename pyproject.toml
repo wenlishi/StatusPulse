@@ -1,0 +1,14 @@
+[project]
+name = "papaxia"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "bs4>=0.0.2",
+    "html5lib>=1.1",
+    "playwright>=1.54.0",
+    "python-dotenv>=1.1.1",
+    "requests>=2.32.4",
+    "schedule>=1.2.2",
+]
