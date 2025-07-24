@@ -1,0 +1,48 @@
+{
+    "last_status": "With Editor",
+    "storage_state": {
+        "cookies": [
+            {
+                "name": "EMSessionID",
+                "value": "%7B1119F717%2D09A4%2D4541%2DB4C0%2DBD36C6DB5E04%7D",
+                "domain": ".editorialmanager.com",
+                "path": "/bae/",
+                "expires": -1,
+                "httpOnly": false,
+                "secure": false,
+                "sameSite": "Lax"
+            },
+            {
+                "name": "JSESSIONID",
+                "value": "e259d58316ba1d54",
+                "domain": ".nr-data.net",
+                "path": "/",
+                "expires": -1,
+                "httpOnly": false,
+                "secure": true,
+                "sameSite": "None"
+            },
+            {
+                "name": "__cf_bm",
+                "value": "131ILfn7StYgrFK1ytKy8N38iduZbnBZ2O3__ufBo6U-1753363730-1.0.1.1-re_oNdrRRHrFbGGmrwwLh2.9kHfBLeUsNRVMKysJkPamJUatGaKAtufu0cLfB4LEgRXFnLNchmMT0dmxfRfjDUJZFvFkpyZw4rdEGFp5mE4",
+                "domain": ".editorialmanager.com",
+                "path": "/",
+                "expires": 1753365530.916004,
+                "httpOnly": true,
+                "secure": true,
+                "sameSite": "None"
+            }
+        ],
+        "origins": [
+            {
+                "origin": "https://www.editorialmanager.com",
+                "localStorage": [
+                    {
+                        "name": "NRBA_SESSION",
+                        "value": "{\"value\":\"19c925424e6da300\",\"inactiveAt\":1753364338925,\"expiresAt\":1753376938925,\"updatedAt\":1753362556037,\"sessionReplayMode\":0,\"sessionReplaySentFirstChunk\":false,\"sessionTraceMode\":0,\"traceHarvestStarted\":false,\"loggingMode\":0,\"serverTimeDiff\":-297,\"custom\":{},\"numOfResets\":0}"
+                    }
+                ]
+            }
+        ]
+    }
+}
