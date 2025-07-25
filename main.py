@@ -4,6 +4,7 @@ import time
 import requests
 import random
 import datetime
+import threading
 import json
 import schedule
 from pathlib import Path
@@ -103,6 +104,10 @@ def send_status_update(access_token, last_status, current_status):
  
 def check_journal_status():
     """期刊状态检查任务的完整流程"""
+    ## 检查是否是允许操作时间段
+    if not is_operating_time():
+        return 
+
     initial_delay = random.randint(1, 60)
     print(f"\n【{time.strftime('%Y-%m-%d %H:%M:%S')}】 任务已触发，为模拟人类操作，将随机延迟 {initial_delay} 秒...")
     time.sleep(initial_delay)
@@ -212,6 +217,29 @@ def check_journal_status():
             else:
                 print("  -> 已达到最大重试次数，任务中断。等待下一个调度周期。")
                 return
+
+def is_operating_time(time_start: int = 1, time_end: int = 6):
+    """检查当前时间是否是凌晨1点到6点,该时间段内不对网站进行爬取"""
+    current_time_obj = datetime.datetime.now()
+    current_time = current_time_obj.time() # 获取当前时间的时间部分
+    span_start = datetime.time(time_start,0)
+    span_end = datetime.time(time_end,0)
+    is_blocked = False
+    # 如果起始时间小于结束时间
+    if span_start < span_end:
+        if span_start < current_time < span_end:
+            is_blocked = True
+    else:
+        # 如果起始时间大于结束时间(跨午夜，如22:00-5:00)
+        if current_time > span_start or current_time < span_end:
+            is_blocked = True
+    if is_blocked:
+        print(f"当前时间{current_time.strftime("%H:%M:%S")}处于模拟睡觉时间段"
+              f"{span_start.strftime("%H:%M")}-{span_end.strftime("%H:%M")},任务跳过")
+        return False
+    return True
+
+
 
 if __name__ == '__main__':
     # 任务2: 每小时的第5分钟，检查一次期刊状态 (例如 1:05, 2:05, 3:05...)
