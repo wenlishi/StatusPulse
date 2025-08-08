@@ -24,6 +24,7 @@ status_template_id = os.getenv("STATUS_TEMPLATE_ID")
 
 journal_username = os.getenv("JOURNAL_USERNAME")
 journal_password = os.getenv("JOURNAL_PASSWORD")
+target_url = os.getenv("TARGET_URL")
 
 
 STATUS_FILE = Path("journal_data.json")
@@ -108,7 +109,7 @@ def check_journal_status():
     if not is_operating_time():
         return 
 
-    initial_delay = random.randint(1, 60)
+    initial_delay = random.randint(1, 30)
     print(f"\n【{time.strftime('%Y-%m-%d %H:%M:%S')}】 任务已触发，为模拟人类操作，将随机延迟 {initial_delay} 秒...")
     time.sleep(initial_delay)
     
@@ -132,9 +133,9 @@ def check_journal_status():
                 page = context.new_page()
  
                 print("  -> 正在导航至网站入口...")
-                page.goto("https://www.editorialmanager.com/bae/default2.aspx", wait_until="domcontentloaded")
+                page.goto(f"{target_url}", wait_until="domcontentloaded")
  
-                main_frame = page.frame_locator('iframe[name="content"]')
+                main_frame = page.frame_locator('#content')
                 
                 # 【核心逻辑】优先检查是否已直接处于最终的状态页面
                 try:
@@ -146,6 +147,7 @@ def check_journal_status():
                     # 如果10秒内没看到 "Current Status"，说明需要登录
                     print("  -> Session已过期或未登录，执行登录操作。")
                     login_frame = main_frame.frame_locator('iframe[name="login"]')
+                    print(login_frame)
                     type_like_human(login_frame.locator("#username"), journal_username)
                     type_like_human(login_frame.locator("#passwordTextbox"), journal_password)
                     
@@ -245,8 +247,9 @@ if __name__ == '__main__':
     # 任务2: 每小时的第5分钟，检查一次期刊状态 (例如 1:05, 2:05, 3:05...)
     # 使用 at(":05") 可以避免在整点执行，稍微错开高峰
     print("脚本启动成功！服务已初始化。")
-    print(f"任务 'check_journal_status' 每45分钟执行一次")
-    schedule.every(45).minutes.do(check_journal_status)
+    print(f"任务 'check_journal_status' 每小時执行一次")
+    schedule.every().hour.at(":23").do(check_journal_status)
+    #schedule.every(45).minutes.do(check_journal_status)
     last_heartbeat_time = time.time()
 
     while True:
@@ -257,3 +260,5 @@ if __name__ == '__main__':
             last_heartbeat_time = current_time
                    
        time.sleep(1)
+
+

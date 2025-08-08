@@ -1,7 +1,17 @@
 {
-    "last_status": "With Editor",
+    "last_status": "Submitted to Journal",
     "storage_state": {
         "cookies": [
+            {
+                "name": "EMSessionID",
+                "value": "%7BA7A79DB2%2DBAE4%2D470C%2DB0CB%2D44D7717328B6%7D",
+                "domain": ".editorialmanager.com",
+                "path": "/jerg/",
+                "expires": -1,
+                "httpOnly": false,
+                "secure": false,
+                "sameSite": "Lax"
+            },
             {
                 "name": "EMSessionID",
                 "value": "%7B1119F717%2D09A4%2D4541%2DB4C0%2DBD36C6DB5E04%7D",
@@ -24,10 +34,10 @@
             },
             {
                 "name": "__cf_bm",
-                "value": "fb78fg6JVebhCf4FAunvITdBm2Wpj0csMQ69EkLbuDY-1753405045-1.0.1.1-.lIVi6qXmYuax2TxQ7Wi1csiiPxRy6FOxR7MeFZs934J8D77aKZBg5SROzaY348ZbYSwLmhR8WIuea03sSnxRIpVMzAKllU7wHNVgQs0bkY",
+                "value": "WYbsV4XVdOssVuS_lBHW0RJFaV93NGjpxoLWoFSF8Xk-1754669765-1.0.1.1-VeBmPhfM6zPk2MIH6BE4EWDJtXCYXL8wSJBx4rU16en5unD.qehLJshP06XjiuHVqTQIlec.xq6Ivx0O6Glv2HEhgDv06ar.r04sXb4Yyes",
                 "domain": ".editorialmanager.com",
                 "path": "/",
-                "expires": 1753406845.318065,
+                "expires": 1754671566.057048,
                 "httpOnly": true,
                 "secure": true,
                 "sameSite": "None"
@@ -39,7 +49,11 @@
                 "localStorage": [
                     {
                         "name": "NRBA_SESSION",
-                        "value": "{\"value\":\"629c57754fcad6e1\",\"inactiveAt\":1753404137949,\"expiresAt\":1753416737949,\"updatedAt\":1753402337950,\"sessionReplayMode\":0,\"sessionReplaySentFirstChunk\":false,\"sessionTraceMode\":0,\"traceHarvestStarted\":false,\"loggingMode\":0,\"serverTimeDiff\":null,\"custom\":{},\"numOfResets\":0}"
+                        "value": "{\"value\":\"bea506045a773c65\",\"inactiveAt\":1754671591056,\"expiresAt\":1754684191055,\"updatedAt\":1754669791370,\"sessionReplayMode\":0,\"sessionReplaySentFirstChunk\":false,\"sessionTraceMode\":0,\"traceHarvestStarted\":false,\"loggingMode\":0,\"serverTimeDiff\":29,\"custom\":{},\"numOfResets\":0}"
+                    },
+                    {
+                        "name": "com.adobe.reactor.dataElements.Visitor - Role",
+                        "value": "\"Author\""
                     }
                 ]
             }

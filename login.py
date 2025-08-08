@@ -135,7 +135,7 @@ if __name__ == '__main__':
     # 使用 at(":05") 可以避免在整点执行，稍微错开高峰
     print("脚本启动成功！服务已初始化。")
     print(f"任务 'check_journal_status' 每20分钟执行一次")
-    schedule.every().hour.at(":42").do(check_journal_status)
+    schedule.every().hour.at(":56").do(check_journal_status)
     schedule.every(2).minutes.do(check_journal_status)
     last_heartbeat_time = time.time()
 
