@@ -1,10 +1,10 @@
 {
-    "last_status": "\u65e0\u5728\u5904\u7406\u7684\u6295\u7a3f",
+    "last_status": "Completed - Reject",
     "storage_state": {
         "cookies": [
             {
                 "name": "EMSessionID",
-                "value": "%7B948065F5%2DE05E%2D4B80%2DACB9%2D23BCBB380877%7D",
+                "value": "%7BD442C011%2DF0AE%2D4C32%2DBA7B%2D328F20314CAF%7D",
                 "domain": ".editorialmanager.com",
                 "path": "/jerg/",
                 "expires": -1,
@@ -14,17 +14,17 @@
             },
             {
                 "name": "__cf_bm",
-                "value": "8i_nHenpfzQUYdm91z1njWHBtGy2BwPvcKEZO2QMorY-1754778203-1.0.1.1-cnM6r5FGTiBieSyutVDlbQC_n4Ag01akkEtU36x95RcN6LtIaZ.Yv15Phz4B6B5fMTDybVCn_MXafx8.t9Ki6xxncVyFvxEAjKjCwaJhCXg",
+                "value": "_YuCy7VE3WGowmRnmwinQRbYeqcyCUcZ8J3eGRCuZK0-1754800285-1.0.1.1-63w4D1TeMqJQDL_Jk8I.ZQlA5vufgcSQL05Na3pX0y2oqHAVf6wA0O9mBSfCmSSl.Nq2HnH22_Iwec2bV.at1DQo3D.GB8FRgn6K4XPW4ZY",
                 "domain": ".editorialmanager.com",
                 "path": "/",
-                "expires": 1754780003.985426,
+                "expires": 1754802085.87999,
                 "httpOnly": true,
                 "secure": true,
                 "sameSite": "None"
             },
             {
                 "name": "JSESSIONID",
-                "value": "aa7d47aea6e342f7",
+                "value": "3381805197e7688f",
                 "domain": ".nr-data.net",
                 "path": "/",
                 "expires": -1,
@@ -39,7 +39,7 @@
                 "localStorage": [
                     {
                         "name": "NRBA_SESSION",
-                        "value": "{\"value\":\"839bcd863f18fd2e\",\"inactiveAt\":1754780005168,\"expiresAt\":1754792605168,\"updatedAt\":1754778222558,\"sessionReplayMode\":0,\"sessionReplaySentFirstChunk\":false,\"sessionTraceMode\":0,\"traceHarvestStarted\":false,\"loggingMode\":0,\"serverTimeDiff\":-89,\"custom\":{},\"numOfResets\":0}"
+                        "value": "{\"value\":\"6769de7362d1cb5f\",\"inactiveAt\":1754802087320,\"expiresAt\":1754814687320,\"updatedAt\":1754800305713,\"sessionReplayMode\":0,\"sessionReplaySentFirstChunk\":false,\"sessionTraceMode\":0,\"traceHarvestStarted\":false,\"loggingMode\":0,\"serverTimeDiff\":-97,\"custom\":{},\"numOfResets\":0}"
                     },
                     {
                         "name": "com.adobe.reactor.dataElements.Visitor - Role",

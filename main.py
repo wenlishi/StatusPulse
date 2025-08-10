@@ -126,7 +126,7 @@ def check_journal_status():
         try:
             with sync_playwright() as p:
                 browser = p.chromium.launch(
-                    headless=False,  # 后台运行时请改回 True
+                    headless=True,  # 后台运行时请改回 True
                     args=["--start-maximized", "--disable-blink-features=AutomationControlled"]
                 )
                 context = browser.new_context(
@@ -174,7 +174,7 @@ def check_journal_status():
                         first_row = op_frame.locator("table#datatable tr#row1")
                         status_cell = first_row.locator("td").nth(5)
                         detailed_status = status_cell.text_content().strip()
-                        current_status = f"详情页直达 -> {detailed_status}" # 直接获取状态，任务提前完成！
+                        current_status = f"{detailed_status}" # 直接获取状态，任务提前完成！
                         
                     except Exception:
                         # [侦察 3/3] 既非主菜单也非详情页，则必须登录
@@ -209,17 +209,32 @@ def check_journal_status():
                     candidate_items = op_frame.locator("a[cssclass='main_menu_item_2'], span[cssclass='main_menu_item_2']")
                     active_statuses = []
                     first_clickable_link = None
+                
+                    try:
+                        # 2. 等待第一个匹配的元素出现，给它一点时间加载
+                        print("  -> 等待菜单项加载...")
+                        candidate_items.first.wait_for(state="attached", timeout=5000) # 等待最多5秒
+                        print("  -> 菜单项已加载！")
+                    except Exception as e:
+                        print(f"  -> 错误：等待超时，在5秒内未找到任何菜单项。错误信息: {e}")
+                        # 在这里可以加上截图，看看当时页面长什么样
+                        page.screenshot(path="debug_screenshot.png")
+                    
+                    # 3. 现在可以安全地进行循环了
+                    print(f"  -> 找到 {candidate_items.count()} 个候选菜单项。") # 用 .count() 来调试
 
                     for item_locator in candidate_items.all():
                         count_span = item_locator.locator("xpath=./following-sibling::span[@class='count'][1]")
+                       
                         if count_span.is_visible():
                             count_text = count_span.inner_text()
                             match = re.search(r'\((\d+)\)', count_text)
+                         
                             if match and int(match.group(1)) > 0:
                                 status_name = item_locator.text_content().strip()
                                 active_statuses.append(f"{status_name} ({match.group(1)})")
-                                print(item_locator.inner_html)
-                                print(item_locator.inner_text)
+                                # print(item_locator.inner_html)
+                                # print(item_locator.inner_text)
                                 if item_locator.evaluate('element => element.tagName') == 'A' and not first_clickable_link:
                                     first_clickable_link = item_locator
 
@@ -230,8 +245,8 @@ def check_journal_status():
                         if first_clickable_link:
                             link_text = first_clickable_link.text_content().strip()
                             print(f"  -> 点击首个活动链接 '{link_text}' 查看详情...")
-                            with page.expect_navigation(wait_until="domcontentloaded", timeout=30000):
-                                first_clickable_link.click()
+                            # with page.expect_navigation(wait_until="domcontentloaded", timeout=30000):
+                            first_clickable_link.click()
                             
                             # 导航后再次确保 op_frame 是最新的
                             op_frame = page.frame(name="content")
@@ -240,7 +255,7 @@ def check_journal_status():
                             first_row = op_frame.locator("table#datatable tr#row1")
                             status_cell = first_row.locator("td").nth(5)
                             detailed_status = status_cell.text_content().strip()
-                            current_status = f"{aggregated_status} -> {detailed_status}"
+                            current_status = f"{detailed_status}"
                         else:
                             current_status = aggregated_status
                 
@@ -284,12 +299,9 @@ def check_journal_status():
                 time.sleep(sleep_time)
             else:
                 print("  -> 已达到最大重试次数，任务彻底中断。")
-        # finally:
-        #     if browser and browser.is_connected():
-        #         browser.close()
+                
 
-
-def is_operating_time(time_start: int = 4, time_end: int = 6):
+def is_operating_time(time_start: int = 1, time_end: int = 6):
     """检查当前时间是否处于非爬取时间段（凌晨2点到6点）。"""
     current_time_obj = datetime.datetime.now()
     current_time = current_time_obj.time()
@@ -313,11 +325,11 @@ def is_operating_time(time_start: int = 4, time_end: int = 6):
 
 if __name__ == '__main__':
     print("脚本启动成功！服务已初始化。")
-    print(f"任务 'check_journal_status' 每小时的第40分钟执行一次。")
-    schedule.every().hour.at(":22").do(check_journal_status)
+    print(f"任务 'check_journal_status' 每小时的第35分钟执行一次。")
+    schedule.every().hour.at(":35").do(check_journal_status)
     
     # 立即执行一次用于测试
-    # check_journal_status()
+    #check_journal_status()
 
     last_heartbeat_time = time.time()
 
