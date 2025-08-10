@@ -1,10 +1,10 @@
 {
-    "last_status": "Submitted to Journal",
+    "last_status": "\u65e0\u5728\u5904\u7406\u7684\u6295\u7a3f",
     "storage_state": {
         "cookies": [
             {
                 "name": "EMSessionID",
-                "value": "%7BA7A79DB2%2DBAE4%2D470C%2DB0CB%2D44D7717328B6%7D",
+                "value": "%7B948065F5%2DE05E%2D4B80%2DACB9%2D23BCBB380877%7D",
                 "domain": ".editorialmanager.com",
                 "path": "/jerg/",
                 "expires": -1,
@@ -13,32 +13,22 @@
                 "sameSite": "Lax"
             },
             {
-                "name": "EMSessionID",
-                "value": "%7B1119F717%2D09A4%2D4541%2DB4C0%2DBD36C6DB5E04%7D",
+                "name": "__cf_bm",
+                "value": "8i_nHenpfzQUYdm91z1njWHBtGy2BwPvcKEZO2QMorY-1754778203-1.0.1.1-cnM6r5FGTiBieSyutVDlbQC_n4Ag01akkEtU36x95RcN6LtIaZ.Yv15Phz4B6B5fMTDybVCn_MXafx8.t9Ki6xxncVyFvxEAjKjCwaJhCXg",
                 "domain": ".editorialmanager.com",
-                "path": "/bae/",
-                "expires": -1,
-                "httpOnly": false,
-                "secure": false,
-                "sameSite": "Lax"
-            },
-            {
-                "name": "JSESSIONID",
-                "value": "e259d58316ba1d54",
-                "domain": ".nr-data.net",
                 "path": "/",
-                "expires": -1,
-                "httpOnly": false,
+                "expires": 1754780003.985426,
+                "httpOnly": true,
                 "secure": true,
                 "sameSite": "None"
             },
             {
-                "name": "__cf_bm",
-                "value": "WYbsV4XVdOssVuS_lBHW0RJFaV93NGjpxoLWoFSF8Xk-1754669765-1.0.1.1-VeBmPhfM6zPk2MIH6BE4EWDJtXCYXL8wSJBx4rU16en5unD.qehLJshP06XjiuHVqTQIlec.xq6Ivx0O6Glv2HEhgDv06ar.r04sXb4Yyes",
-                "domain": ".editorialmanager.com",
+                "name": "JSESSIONID",
+                "value": "aa7d47aea6e342f7",
+                "domain": ".nr-data.net",
                 "path": "/",
-                "expires": 1754671566.057048,
-                "httpOnly": true,
+                "expires": -1,
+                "httpOnly": false,
                 "secure": true,
                 "sameSite": "None"
             }
@@ -49,7 +39,7 @@
                 "localStorage": [
                     {
                         "name": "NRBA_SESSION",
-                        "value": "{\"value\":\"bea506045a773c65\",\"inactiveAt\":1754671591056,\"expiresAt\":1754684191055,\"updatedAt\":1754669791370,\"sessionReplayMode\":0,\"sessionReplaySentFirstChunk\":false,\"sessionTraceMode\":0,\"traceHarvestStarted\":false,\"loggingMode\":0,\"serverTimeDiff\":29,\"custom\":{},\"numOfResets\":0}"
+                        "value": "{\"value\":\"839bcd863f18fd2e\",\"inactiveAt\":1754780005168,\"expiresAt\":1754792605168,\"updatedAt\":1754778222558,\"sessionReplayMode\":0,\"sessionReplaySentFirstChunk\":false,\"sessionTraceMode\":0,\"traceHarvestStarted\":false,\"loggingMode\":0,\"serverTimeDiff\":-89,\"custom\":{},\"numOfResets\":0}"
                     },
                     {
                         "name": "com.adobe.reactor.dataElements.Visitor - Role",
